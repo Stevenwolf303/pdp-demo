@@ -16,7 +16,7 @@ const navTabs = [
 
 const StickyHeader = () => {
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-10 z-50 bg-white border-b border-gray-200">
       {/* Row 1: Back + Logo */}
       <div className="relative flex items-center justify-center h-11 px-6">
         <button className="absolute left-6 flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900 transition-colors">
