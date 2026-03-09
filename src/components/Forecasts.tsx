@@ -216,7 +216,7 @@ const Forecasts = () => {
                 <div className="flex flex-col gap-6">
                   {growthYLabels.map((label) => (
                     <div key={label} className="flex items-center gap-2">
-                      <span className="w-11 text-right text-sm font-medium text-gray-500 shrink-0">{label}</span>
+                      <span className="w-11 text-right text-xs font-medium text-gray-500 shrink-0">{label}</span>
                       <div className="flex-1 h-px" style={{ backgroundImage: label === "0%" ? "repeating-linear-gradient(to right, #d1d5db 0 4px, transparent 4px 6px, #d1d5db 6px 7px, transparent 7px 10px)" : "repeating-linear-gradient(to right, #e5e7eb 0 4px, transparent 4px 6px, #e5e7eb 6px 7px, transparent 7px 10px)" }} />
                     </div>
                   ))}
@@ -265,7 +265,7 @@ const Forecasts = () => {
                 <div className="flex flex-col gap-6">
                   {rentYLabels.map((label) => (
                     <div key={label} className="flex items-center gap-2">
-                      <span className="w-14 text-right text-sm font-medium text-gray-500 shrink-0">{label}</span>
+                      <span className="w-14 text-right text-xs font-medium text-gray-500 shrink-0">{label}</span>
                       <div className="flex-1 h-px" style={{ backgroundImage: "repeating-linear-gradient(to right, #e5e7eb 0 4px, transparent 4px 6px, #e5e7eb 6px 7px, transparent 7px 10px)" }} />
                     </div>
                   ))}
