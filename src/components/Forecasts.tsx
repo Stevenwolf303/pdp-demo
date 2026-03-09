@@ -205,7 +205,7 @@ const Forecasts = () => {
                 {/* Forecast label */}
                 <div className="absolute left-14 right-0 -top-5 pointer-events-none z-10">
                   <span
-                    className="absolute text-[10px] font-medium text-indigo-400 -translate-x-1/2"
+                    className="absolute text-[10px] font-medium text-gray-400 -translate-x-1/2"
                     style={{ left: `${dividerPct}%` }}
                   >
                     Forecast
@@ -217,7 +217,7 @@ const Forecasts = () => {
                   {growthYLabels.map((label) => (
                     <div key={label} className="flex items-center gap-2">
                       <span className="w-11 text-right text-sm font-medium text-gray-500 shrink-0">{label}</span>
-                      <div className={`flex-1 border-t ${label === "0%" ? "border-gray-300" : "border-gray-200"}`} />
+                      <div className="flex-1 h-px" style={{ backgroundImage: label === "0%" ? "repeating-linear-gradient(to right, #d1d5db 0 4px, transparent 4px 6px, #d1d5db 6px 7px, transparent 7px 10px)" : "repeating-linear-gradient(to right, #e5e7eb 0 4px, transparent 4px 6px, #e5e7eb 6px 7px, transparent 7px 10px)" }} />
                     </div>
                   ))}
                 </div>
@@ -231,18 +231,17 @@ const Forecasts = () => {
                   preserveAspectRatio="none"
                   fill="none"
                 >
-                  <rect x={forecastDividerX} y="0" width={chartW - forecastDividerX} height={chartH} fill="#eef2ff" opacity="0.35" />
-                  <line x1={forecastDividerX} y1="0" x2={forecastDividerX} y2={chartH} stroke="#c7d2fe" strokeWidth="1.5" strokeDasharray="6 4" vectorEffect="non-scaling-stroke" />
+                  <line x1={forecastDividerX} y1="0" x2={forecastDividerX} y2={chartH} stroke="#d1d5db" strokeWidth="1" strokeDasharray="6 4" vectorEffect="non-scaling-stroke" />
 
                   {/* Historical (solid) */}
                   <path d={buildHistPath(fullData.market)} stroke="#f472b6" strokeWidth="2" vectorEffect="non-scaling-stroke" fill="none" />
-                  <path d={buildHistPath(fullData.submarket)} stroke="#14b8a6" strokeWidth="2" vectorEffect="non-scaling-stroke" fill="none" />
+                  <path d={buildHistPath(fullData.submarket)} stroke="#38bdf8" strokeWidth="2" vectorEffect="non-scaling-stroke" fill="none" />
                   <path d={buildHistPath(fullData.property)} stroke="#4f46e5" strokeWidth="2.5" vectorEffect="non-scaling-stroke" fill="none" />
 
-                  {/* Forecast */}
-                  <path d={buildFcstPath(fullData.market)} stroke="#f472b6" strokeWidth="1.5" strokeDasharray="6 3" vectorEffect="non-scaling-stroke" fill="none" />
-                  <path d={buildFcstPath(fullData.submarket)} stroke="#14b8a6" strokeWidth="1.5" strokeDasharray="6 3" vectorEffect="non-scaling-stroke" fill="none" />
-                  <path d={buildFcstPath(fullData.property)} stroke="#4f46e5" strokeWidth="2.5" vectorEffect="non-scaling-stroke" fill="none" />
+                  {/* Forecast (50% opacity) */}
+                  <path d={buildFcstPath(fullData.market)} stroke="#f472b6" strokeWidth="1.5" strokeDasharray="6 3" vectorEffect="non-scaling-stroke" fill="none" opacity="0.5" />
+                  <path d={buildFcstPath(fullData.submarket)} stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="6 3" vectorEffect="non-scaling-stroke" fill="none" opacity="0.5" />
+                  <path d={buildFcstPath(fullData.property)} stroke="#4f46e5" strokeWidth="2.5" vectorEffect="non-scaling-stroke" fill="none" opacity="0.5" />
                 </svg>
               </div>
 
@@ -267,7 +266,7 @@ const Forecasts = () => {
                   {rentYLabels.map((label) => (
                     <div key={label} className="flex items-center gap-2">
                       <span className="w-14 text-right text-sm font-medium text-gray-500 shrink-0">{label}</span>
-                      <div className="flex-1 border-t border-gray-200" />
+                      <div className="flex-1 h-px" style={{ backgroundImage: "repeating-linear-gradient(to right, #e5e7eb 0 4px, transparent 4px 6px, #e5e7eb 6px 7px, transparent 7px 10px)" }} />
                     </div>
                   ))}
                 </div>
@@ -321,7 +320,7 @@ const Forecasts = () => {
                 <span className="text-xs font-medium text-gray-500">The Crescent Residences at Kingsbury Park</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-sm bg-teal-500" />
+                <div className="w-3 h-3 rounded-sm bg-sky-400" />
                 <span className="text-xs font-medium text-gray-500">North Chicago</span>
               </div>
               <div className="flex items-center gap-2">
