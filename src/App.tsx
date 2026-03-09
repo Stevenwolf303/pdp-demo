@@ -2,36 +2,47 @@ import { useState } from "react";
 import Index from "./pages/Index";
 import IndexV2 from "./pages/IndexV2";
 
-const versions = [
-  { v: 1, pattern: "Toggle"   },
-  { v: 2, pattern: "Dropdown" },
-] as { v: 1 | 2; pattern: string }[];
-
 function App() {
   const [version, setVersion] = useState<1 | 2>(1);
 
   return (
     <div>
       {/* ── Version switcher bar ── */}
-      <div className="fixed top-0 left-0 right-0 z-[60] h-11 bg-white border-b border-gray-100 flex items-center justify-center">
-        <div className="flex items-center bg-gray-100/70 rounded-full p-0.5 gap-px">
-          {versions.map(({ v, pattern }) => (
-            <button
-              key={v}
-              onClick={() => setVersion(v)}
-              className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-200 ${
-                version === v
-                  ? "bg-white text-gray-900 shadow-sm"
-                  : "text-gray-400 hover:text-gray-600"
-              }`}
-            >
-              <span className={`font-semibold ${version === v ? "text-indigo-600" : "text-gray-400"}`}>
-                Version {v}
-              </span>
-              <span className="text-gray-300 select-none">·</span>
-              <span>{pattern}</span>
-            </button>
-          ))}
+      <div className="fixed top-0 left-0 right-0 z-[60] h-11 bg-white border-b border-gray-100 flex items-center justify-center gap-3">
+
+        {/* Static label */}
+        <span className="text-xs font-medium text-gray-400 select-none tracking-wide">
+          Version
+        </span>
+
+        {/* Sliding segmented control */}
+        <div className="relative flex items-center bg-gray-100/70 rounded-full p-0.5">
+
+          {/* Sliding pill indicator */}
+          <div
+            className="absolute top-0.5 bottom-0.5 rounded-full bg-white shadow-sm pointer-events-none"
+            style={{
+              width: "calc(50% - 2px)",
+              left: version === 1 ? "2px" : "calc(50%)",
+              transition: "left 0.22s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease",
+            }}
+          />
+
+          {(["Toggle", "Dropdown"] as const).map((label, i) => {
+            const v = (i + 1) as 1 | 2;
+            const active = version === v;
+            return (
+              <button
+                key={label}
+                onClick={() => setVersion(v)}
+                className={`relative z-10 flex-1 px-4 py-1.5 text-xs font-medium text-center whitespace-nowrap rounded-full transition-colors duration-200 ${
+                  active ? "text-gray-900" : "text-gray-400 hover:text-gray-600"
+                }`}
+              >
+                {label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
