@@ -28,14 +28,10 @@ const StickyHeader = () => {
 
         {/* Center: Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-indigo-700 rounded flex items-center justify-center flex-shrink-0">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <rect x="2" y="7" width="5" height="8" fill="white" rx="0.5" />
-              <rect x="9" y="4" width="5" height="11" fill="white" rx="0.5" />
-              <rect x="5" y="10" width="4" height="5" fill="white" rx="0" />
-              <path d="M1 8L8 2L15 8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
-          </div>
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="none" className="flex-shrink-0">
+            <path fillRule="evenodd" clipRule="evenodd" d="M8 4.57143V16H1V5.89011C1 5.16182 1.6268 4.57143 2.4 4.57143H8ZM5.66667 11.6044H3.33333V13.8022H5.66667V11.6044ZM5.66667 7.20879H3.33333V9.40659H5.66667V7.20879Z" fill="#6366F1"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M13.6 0C14.3732 0 15 0.614009 15 1.37143V16H8V1.37143C8 0.614009 8.6268 0 9.4 0H13.6ZM12.6667 11.4286H10.3333V13.7143H12.6667V11.4286ZM12.6667 6.85714H10.3333V9.14286H12.6667V6.85714ZM12.6667 2.28571H10.3333V4.57143H12.6667V2.28571Z" fill="#4338CA"/>
+          </svg>
           <span className="text-[15px] font-semibold text-gray-900 tracking-tight">ApartmentIQ</span>
         </div>
       </div>
